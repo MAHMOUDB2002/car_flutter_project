@@ -1,11 +1,8 @@
-import 'package:car_project/data/car_item_model.dart';
+import 'package:car_project/model/car_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../app/shared/style/AppTheme.dart';
-import '../../../app/shared/style/color.dart';
-import '../../../common_widget/customTextFormWithRecord.dart';
-import 'login_Screen.dart';
+import '../../../shared/style/AppTheme.dart';
+import '../../../widget/customTextFormWithRecord.dart';
 
 class CommunityScreen extends StatefulWidget {
   // Function function;
@@ -98,134 +95,91 @@ class _CommunityScreenState extends State<CommunityScreen> {
       appBar: AppBar(
         backgroundColor: AppTheme.colors.primaryColor,
         actions: [
-          Container(
-            width: 30.w,
-            height: 30.h,
-            padding: EdgeInsets.all(8),
-            decoration:
-                BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-            alignment: Alignment.center,
-            child: Icon(
-              size: 17,
-              Icons.add,
-              color: Colors.green,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsetsDirectional.only(start: 20.0, end: 20),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 284.w,
+                    child: Stack(
+                      alignment: Alignment.centerLeft,
+                      children: [
+                        CustomTextFormWithRecord(
+                          text: "Search",
+                          height: 30.h,
+                          borderRadius: 25.r,
+                          color: AppTheme.colors.White,
+                          prefixIcon: Padding(
+                            padding: EdgeInsets.all(12.h),
+                          ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1
+                              ?.copyWith(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppTheme.colors.secondryColorText),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 10.w),
+                          child: Image.asset(
+                            "assets/images/search.png",
+                            color: AppTheme.colors.iconColor,
+                            height: 20.h,
+                            width: 20.w,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                      start: 21.0,
+                    ),
+                    child: Container(
+                      width: 30.w,
+                      height: 30.h,
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                          color: Colors.white, shape: BoxShape.circle),
+                      alignment: Alignment.center,
+                      child: Icon(
+                        size: 17,
+                        Icons.add,
+                        color: Colors.green,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-          // SizedBox(
-          //   width: 30.w,
-          //   height: 30.h,
-          //   child: CircleAvatar(
-          //     backgroundImage: AssetImage("assets/images/p.png"),
-          //     backgroundColor: Colors.white,
-          //   ),
-          // )
-          // Container(
-          //   width: 35.w,
-          //   height: 35.h,
-          //   decoration: BoxDecoration(
-          //     borderRadius: BorderRadius.circular(20),
-          //     color: Colors.white,
-          //   ),
-          //   child: Stack(
-          //     alignment: Alignment.center,
-          //     children: [
-          //       Icon(
-          //         Icons.add,
-          //         size: 20,
-          //         color: Colors.green,
-          //       ),
-          //     ],
-          //   ),
-          // )
         ],
-        title: SizedBox(
-          width: 285.w,
-          child: Stack(
-            alignment: Alignment.centerLeft,
-            children: [
-              CustomTextFormWithRecord(
-                text: "Search",
-                height: 30.h,
-                borderRadius: 25.r,
-                color:  AppTheme.colors.White,
-                prefixIcon: Padding(
-                  padding: EdgeInsets.all(12.h),
-                ),
-                style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w400,
-                    color: AppTheme.colors.secondryColorText),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 10.w),
-                child: Image.asset(
-                  "assets/images/search.png",
-                  color: AppTheme.colors.iconColor,
-                  height: 20.h,
-                  width: 20.w,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Row(
-            //   children: [
-            //     Container(
-            //       width: 330.w,
-            //       height: 60.h,
-            //       padding: EdgeInsets.all(10.0),
-            //       child: Center(
-            //         child: CupertinoSearchTextField(
-            //           backgroundColor: Colors.white,
-            //           borderRadius: BorderRadius.circular(30),
-            //           controller: _textController,
-            //         ),
-            //       ),
-            //     ),
-            //     Container(
-            //       width: 35.w,
-            //       height: 35.h,
-            //       decoration: BoxDecoration(
-            //         borderRadius: BorderRadius.circular(20),
-            //         color: Colors.white,
-            //       ),
-            //       child: Stack(
-            //         alignment: Alignment.center,
-            //         children: [
-            //           Icon(
-            //             Icons.add,
-            //             size: 20,
-            //             color: Colors.green,
-            //           ),
-            //         ],
-            //       ),
-            //     )
-            //   ],
-            // ),
-            Column(
-              children: [
-                SizedBox(
-                  height: 102.h,
-                  child: ListView.separated(
-                    itemCount: carsItems.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => buildCarModelItem(
-                        carsItems[index], imagesIndex = index, context),
-                    separatorBuilder: (BuildContext context, int index) =>
-                        buildCarModelItem(
-                            carsItems[index], imagesIndex = index, context),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.only(start: 20.0, end: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                children: [
+                  SizedBox(
+                    height: 102.h,
+                    child: ListView.separated(
+                      itemCount: carsItems.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) => buildCarModelItem(
+                          carsItems[index], imagesIndex = index, context),
+                      separatorBuilder: (BuildContext context, int index) =>
+                          buildCarModelItem(
+                              carsItems[index], imagesIndex = index, context),
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
+                  Row(
                     children: [
                       DropdownButton(
                         underline: SizedBox(),
@@ -237,7 +191,9 @@ class _CommunityScreenState extends State<CommunityScreen> {
                         hint: Text(
                           "Recommend",
                           style: TextStyle(
-                              color: Colors.green, fontWeight: FontWeight.bold),
+                              color: Colors.green,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12.sp),
                         ),
                         value: valueChoose,
                         onChanged: (newValue) {
@@ -251,7 +207,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
                               child: Text(
                                 valueItem,
                                 style: TextStyle(
-                                    fontSize: 25.0.sp,
+                                    fontSize: 12.0.sp,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.green),
                               ));
@@ -259,18 +215,18 @@ class _CommunityScreenState extends State<CommunityScreen> {
                       ),
                     ],
                   ),
-                ),
-              ],
-            ),
-            ListView.builder(
-                padding: EdgeInsets.all(0),
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: carsItems.length,
-                scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) => buildAccountUserModelItem(
-                    carsItems[index], imagesIndex = index, context)),
-          ],
+                ],
+              ),
+              ListView.builder(
+                  padding: EdgeInsets.all(0),
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: carsItems.length,
+                  scrollDirection: Axis.vertical,
+                  itemBuilder: (context, index) => buildAccountUserModelItem(
+                      carsItems[index], imagesIndex = index, context)),
+            ],
+          ),
         ),
       ),
     );
@@ -304,7 +260,7 @@ Widget buildAccountUserModelItem(
         CarItemModel image, int index, BuildContext con) =>
     GestureDetector(
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.only(bottom: 30),
         child: Container(
           alignment: AlignmentDirectional.topStart,
           child: Column(
@@ -331,7 +287,7 @@ Widget buildAccountUserModelItem(
                               overflow: TextOverflow.ellipsis),
                         ),
                         SizedBox(
-                          height: 10.h,
+                          height: 3.h,
                         ),
                         Text(
                           '${image.carName}',
@@ -368,7 +324,7 @@ Widget buildAccountUserModelItem(
                 ),
               ),
               SizedBox(
-                height: 20.0.h,
+                height: 30.0.h,
               ),
               Text('${image.carName}'),
               Image(
@@ -417,4 +373,3 @@ Widget buildAccountUserModelItem(
         ),
       ),
     );
-

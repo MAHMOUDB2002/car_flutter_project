@@ -1,8 +1,8 @@
-import 'package:car_project/modules/home/views/login_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../data/car_item_model.dart';
+import '../../../model/car_item_model.dart';
+import 'package:car_project/modules/home/views/Authentication/login_Screen.dart';
 
 class PopularBrandScreen extends StatelessWidget {
   // Function function;
@@ -266,13 +266,6 @@ Widget buildFilterPopularBrandItem(
         CarItemModel carItem, int index, BuildContext con) =>
     GestureDetector(
       onTap: () {
-        //   Navigator.push(
-        //       con,
-        //       MaterialPageRoute(
-        //         builder: (context) => DetailsScreen1(
-        //           productM: product,
-        //         ),
-        //       ));
       },
       child: Container(
         width: 375.w,

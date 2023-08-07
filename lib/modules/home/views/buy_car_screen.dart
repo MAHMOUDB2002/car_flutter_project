@@ -1,10 +1,12 @@
-import 'package:car_project/data/car_item_model.dart';
-import 'package:car_project/modules/home/views/login_Screen.dart';
+import 'package:car_project/model/car_item_model.dart';
+import 'package:car_project/modules/home/controllers/buy_car_controller.dart';
+import 'package:car_project/modules/home/views/Authentication/login_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../app/shared/style/AppTheme.dart';
-import '../../../common_widget/customTextFormWithRecord.dart';
+import 'package:get/get.dart';
+import '../../../shared/style/AppTheme.dart';
+import '../../../widget/customTextFormWithRecord.dart';
+import '../../../widget/custom_list_view.dart';
 
 class BuyCarScreen extends StatefulWidget {
   // Function function;
@@ -274,11 +276,6 @@ class _BuyCarScreenState extends State<BuyCarScreen> {
                         itemBuilder: (context, index) => buildCarItem(
                             carsItems[index], imagesIndex = index, context)),
                   )
-
-                  //    ListView.builder(
-                  //       itemCount: products.length,
-                  //       scrollDirection: Axis.horizontal,
-                  // )
                 ],
               ),
             ],
@@ -289,138 +286,183 @@ class _BuyCarScreenState extends State<BuyCarScreen> {
   }
 }
 
-Widget buildCarItem(CarItemModel carItem, int index, BuildContext con) =>
-    GestureDetector(
-      // onTap: () {
-      //   Navigator.push(
-      //       con,
-      //       MaterialPageRoute(
-      //         builder: (context) => DetailsScreen1(
-      //           productM: product,
-      //         ),
-      //       ));
-      // },
-      child: Stack(
-        children: [
-          Container(
-            // margin: EdgeInsets.symmetric(vertical: 5.0),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(20.0))),
-            width: 160.w,
-            height: 225.h,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      IconButton(
-                          onPressed: () {}, icon: Icon(Icons.favorite_border))
-                    ],
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Image(
-                      // image: AssetImage('${product.ProductImage}'),
-                      image: AssetImage("${carItem.carImage}"),
-                      height: 80.0.h,
-                      width: 120.0.w,
+// return GetBuilder<HomeController>(
+//     init: HomeController(),
+//     builder: (controller) {
+
+Widget buildCarItem(CarItemModel carItem, int index, BuildContext con) {
+  return GetBuilder<BuyCarController>(
+    init: BuyCarController(),
+    builder: (controller) {
+      return GestureDetector(
+        // onTap: () {
+        //   Navigator.push(
+        //       con,
+        //       MaterialPageRoute(
+        //         builder: (context) => DetailsScreen1(
+        //           productM: product,
+        //         ),
+        //       ));
+        // },
+        child: Stack(
+          children: [
+            Container(
+              // margin: EdgeInsets.symmetric(vertical: 5.0),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(20.0))),
+              width: 160.w,
+              height: 225.h,
+              child: Padding(
+                padding: const EdgeInsetsDirectional.only(start: 15.0, end: 17),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Image(
+                        // image: AssetImage('${product.ProductImage}'),
+                        image: AssetImage("${carItem.carImage}"),
+                        height: 80.0.h,
+                        width: 120.0.w,
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '${carItem.carName}',
-                          style: TextStyle(
-                              fontSize: 14.0.sp,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              overflow: TextOverflow.ellipsis),
-                        ),
-                        SizedBox(
-                          height: 5.0.h,
-                        ),
-                        Text(
-                          '${carItem.carName}',
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 10.sp,
-                            overflow: TextOverflow.ellipsis,
+                    Expanded(
+                      flex: 1,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${carItem.carName}',
+                            style: TextStyle(
+                                fontSize: 14.0.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                overflow: TextOverflow.ellipsis),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 10.0.w,
-                          height: 10.0.h,
-                          decoration: BoxDecoration(
-                              color: carItem.carFColor,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10.0))),
-                        ),
-                        SizedBox(
-                          width: 10.0.w,
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                              color: carItem.carSColor,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10.0))),
-                          width: 10.0.w,
-                          height: 10.0.h,
-                        ),
-                        SizedBox(
-                          width: 10.0.w,
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                              color: carItem.carTColor,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10.0))),
-                          width: 10.0.w,
-                          height: 10.0.h,
-                        ),
-                        Spacer(),
-                        // SizedBox(
-                        //   width: 32.0.w,
-                        // ),
-                        Text(
-                          '${carItem.carPrice}',
-                          style: TextStyle(
-                              fontSize: 14.0.sp,
-                              color: Colors.green,
+                          SizedBox(
+                            height: 5.0.h,
+                          ),
+                          Text(
+                            '${carItem.carName}',
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 10.sp,
                               overflow: TextOverflow.ellipsis,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  )
+                    Expanded(
+                      flex: 1,
+                      child: Row(
+                        children: [
+                          CustomListView(
+                            height: 10.h,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            separatorBuilder: SizedBox(),
+                            itemBuilder: (context, index) => Container(
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  GestureDetector(
+                                      onTap: () {
+                                        controller.changeValueOfIndex(index);
+                                      },
+                                      child: CircleAvatar(
+                                        radius: 10.h,
+                                        backgroundColor:
+                                            Color(controller.myColors[index]),
+                                      )),
+                                  controller.index == index
+                                      ? CircleAvatar(
+                                          radius: 15.h,
+                                          backgroundColor:
+                                              Color(controller.myColors[index])
+                                                  .withOpacity(0.55),
+                                        )
+                                      : Container(),
+                                ],
+                              ),
+                            ),
+                            itemCount: controller.myColors.length,
+                          ),
+
+                          // Container(
+                          //   width: 10.0.w,
+                          //   height: 10.0.h,
+                          //   decoration: BoxDecoration(
+                          //       color: carItem.carFColor,
+                          //       borderRadius:
+                          //           BorderRadius.all(Radius.circular(10.0))),
+                          // ),
+                          // SizedBox(
+                          //   width: 7.0.w,
+                          // ),
+                          // Container(
+                          //   decoration: BoxDecoration(
+                          //       color: carItem.carSColor,
+                          //       borderRadius:
+                          //           BorderRadius.all(Radius.circular(10.0))),
+                          //   width: 10.0.w,
+                          //   height: 10.0.h,
+                          // ),
+                          // SizedBox(
+                          //   width: 7.0.w,
+                          // ),
+                          // Container(
+                          //   decoration: BoxDecoration(
+                          //       color: carItem.carTColor,
+                          //       borderRadius:
+                          //           BorderRadius.all(Radius.circular(10.0))),
+                          //   width: 10.0.w,
+                          //   height: 10.0.h,
+                          // ),
+                          Spacer(),
+                          Text(
+                            '${carItem.carPrice}',
+                            style: TextStyle(
+                                fontSize: 14.0.sp,
+                                color: Colors.green,
+                                overflow: TextOverflow.ellipsis,
+                                fontWeight: FontWeight.normal),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+                child: Container(
+              width: 46.w,
+              height: 23.h,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10)),
+                  color: Colors.green[100]),
+              child: Center(
+                  child: Text(
+                'Offer',
+                style: TextStyle(color: Color(hexColor('##1DB854'))),
+              )),
+            )),
+            Positioned(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  IconButton(
+                      onPressed: () {}, icon: Icon(Icons.favorite_border))
                 ],
               ),
             ),
-          ),
-          Positioned(
-              child: Container(
-            width: 46.w,
-            height: 23.h,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10)),
-                color: Color(hexColor('#1DB854'))),
-            child: Center(child: Text('Offer')),
-          ))
-        ],
-      ),
-    );
+          ],
+        ),
+      );
+    },
+  );
+}

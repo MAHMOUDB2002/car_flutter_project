@@ -1,11 +1,10 @@
-import 'package:car_project/data/car_item_model.dart';
+import 'package:car_project/model/car_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../app/shared/style/AppTheme.dart';
-import '../../../app/shared/style/components.dart';
-import '../../../common_widget/customTextFormWithRecord.dart';
+import '../../../shared/style/AppTheme.dart';
+import '../../../shared/components/components.dart';
+import '../../../widget/customTextFormWithRecord.dart';
 
 class NewsDetailsScreen extends StatefulWidget {
   // Function function;

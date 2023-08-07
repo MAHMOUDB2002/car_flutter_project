@@ -1,7 +1,27 @@
-import 'package:car_project/modules/home/views/Register_screen.dart';
+import 'package:car_project/modules/home/views/Authentication/verification_screen.dart';
+import 'package:car_project/modules/home/views/auto_parts.dart';
+import 'package:car_project/modules/home/views/brand_screen.dart';
+import 'package:car_project/modules/home/views/buy_car_screen.dart';
+import 'package:car_project/modules/home/views/community_screen.dart';
+import 'package:car_project/modules/home/views/details/car_details_price.dart';
+import 'package:car_project/modules/home/views/details/compare_cars.dart';
+import 'package:car_project/modules/home/views/details/compare_cars_list.dart';
+import 'package:car_project/modules/home/views/layout/home_layout.dart';
+import 'package:car_project/modules/home/views/my_order_screen.dart';
+import 'package:car_project/modules/home/views/news_details.dart';
+import 'package:car_project/modules/home/views/news_details_review%20.dart';
+import 'package:car_project/modules/home/views/popular_brand_screen.dart';
+import 'package:car_project/modules/home/views/profile_screen.dart';
+import 'package:car_project/modules/home/views/search/search_brand_screen.dart';
+import 'package:car_project/modules/home/views/search/search_model_screen.dart';
+import 'package:car_project/modules/home/views/search/search_screen.dart';
+import 'package:car_project/modules/home/views/video_details_review.dart';
+import 'package:car_project/modules/home/views/video_details_screen.dart';
 import 'package:get/get.dart';
 
-import '../../modules/home/views/login_Screen.dart';
+import '../../modules/home/views/Authentication/Register_screen.dart';
+import '../../modules/home/views/Authentication/location _screen.dart';
+import '../../modules/home/views/Authentication/login_Screen.dart';
 import '../binding/home_binding.dart';
 
 part 'app_routes.dart';
@@ -34,62 +54,122 @@ class AppPages {
       page: () => RegisterScreen(),
       binding: HomeBinding(),
     ),
-    // GetPage(
-    //   name: _Paths.LAYOUT,
-    //   page: () => LayoutView(),
-    //   binding: HomeBinding(),
-    // ),
-    // GetPage(
-    //   name: _Paths.SelectionDoctorOrSickView,
-    //   page: () => SelectionDoctorOrSickView(),
-    //   binding: HomeBinding(),
-    // ),
-    // GetPage(
-    //   name: _Paths.UpdateProfileView,
-    //   page: () => UpdateProfileView(),
-    //   binding: HomeBinding(),
-    // ),
-    // GetPage(
-    //   name: _Paths.PATIENTS,
-    //   page: () => PatientsView(),
-    //   binding: PatientsBinding(),
-    // ),
-    // GetPage(
-    //   name: _Paths.Register_PATIENTS,
-    //   page: () => RegisterPatientsView(),
-    //   binding: PatientsBinding(),
-    // ),
-    // GetPage(
-    //   name: _Paths.LayoutPatientsAppView,
-    //   page: () => LayoutPatientsAppView(),
-    //   binding: PatientsBinding(),
-    // ),
-    // GetPage(
-    //   name: _Paths.UpdateProfilePatientsView,
-    //   page: () => UpdateProfilePatientsView(),
-    //   binding: PatientsBinding(),
-    // ),
+    GetPage(
+      name: _Paths.Verrification,
+      page: () => VerificationScreen(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.HOME_LAYOUT,
+      page: () => HomeLayout(),
+      binding: HomeBinding(),
+    ),
 
-    // GetPage(
-    //     name: _Paths.AddArticleView,
-    //     page: () => AddArticleView(),
-    //     binding: HomeBinding()),
+    GetPage(
+      name: _Paths.MyLocation,
+      page: () => LocationView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.BuyCar,
+      page: () => BuyCarScreen(),
+      binding: HomeBinding(),
+    ),
 
-    // GetPage(
-    //     name: _Paths.ArticleDetailsView,
-    //     page: () => ArticleDetailsView(),
-    //     binding: HomeBinding()),
-    // GetPage(
-    //     name: _Paths.ArticleView,
-    //     page: () => ArticleView(),
-    //     binding: PatientsBinding()),
-    // GetPage(
-    //     name: _Paths.ArticleDetailsPatientsView,
-    //     page: () => ArticleDetailsPatientsView(),
-    //     binding: PatientsBinding()),
-    // GetPage(
-    //     name: _Paths.UpdateArticleView,
-    //     page: () => UpdateArticleView(),
-    //     binding: HomeBinding()),
+    GetPage(
+      name: _Paths.Community,
+      page: () => CommunityScreen(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.PROFILE,
+      page: () => ProfileScreen(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.SEARCH,
+      page: () => SearchScreen(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.SEARCH_BRAND,
+      page: () => SearchBrandScreen(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.SEARCH_MODEL,
+      page: () => SearchModelScreen(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.Brand,
+      page: () => PopularBrandScreen(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.Brand2,
+      page: () => BrandScreen(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.NEWS_DETALIS,
+      page: () => NewsDetailsScreen(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.NEWSDETALIS_REVIEW,
+      page: () => NewsDetailsReviewScreen(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.VIDEO,
+      page: () => VideoDetailsScreen(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.VIDEO_REVIEW,
+      page: () => VideoDetailsReviewScreen(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.CAR_DETAILS_PRICE,
+      page: () => CarDetailsPrice(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.COMPARE_CARS,
+      page: () => CompareCars(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.COMPARE_CARS_LIST,
+      page: () => CompareCareList(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.AUTO_PARTS,
+      page: () => AutoPartsScreen(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.MY_ORDER,
+      page: () => MyOrderScreen(),
+      binding: HomeBinding(),
+    ),
   ];
 }

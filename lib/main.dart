@@ -1,9 +1,8 @@
 import 'package:car_project/modules/home/views/layout/home_layout.dart';
+import 'package:car_project/shared/style/AppTheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
-import 'app/shared/style/AppTheme.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,6 +34,19 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
+              colorScheme: ColorScheme(
+                  primaryContainer: AppTheme.colors.White,
+                  brightness: Brightness.light,
+                  primary: AppTheme.colors.secondryColor,
+                  onPrimary: AppTheme.colors.secondryColor,
+                  secondary: AppTheme.colors.secondryColorText,
+                  onSecondary: AppTheme.colors.secondryColor,
+                  error: AppTheme.colors.secondryColor,
+                  onError: AppTheme.colors.secondryColor,
+                  background: AppTheme.colors.secondryColor,
+                  onBackground: AppTheme.colors.primaryColorText,
+                  surface: AppTheme.colors.secondryColor,
+                  onSurface: AppTheme.colors.secondryColor),
               scaffoldBackgroundColor: AppTheme.colors.primaryColor,
               appBarTheme: AppBarTheme(
                   // shape: OvalBorder(),

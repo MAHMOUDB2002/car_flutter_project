@@ -1,9 +1,9 @@
-import 'package:car_project/modules/home/views/login_Screen.dart';
+import 'package:car_project/modules/home/views/Authentication/login_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../app/shared/style/AppTheme.dart';
-import '../../../common_widget/custom_icon.dart';
+import '../../../shared/style/AppTheme.dart';
+import '../../../widget/custom_icon.dart';
 
 class ProfileScreen extends StatelessWidget {
   // Function function;
@@ -16,7 +16,7 @@ class ProfileScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppTheme.colors.primaryColor,
         leading: CustomIcon(
-          icon: Icons.arrow_back,
+          iconData: Icons.arrow_back,
           size: 30.h,
           color: AppTheme.colors.iconPrimaryColor,
         ),
@@ -35,56 +35,62 @@ class ProfileScreen extends StatelessWidget {
           //   ),
           // ),
 
-          Container(
-            width: 30.w,
-            height: 30.h,
-            padding: EdgeInsets.all(8),
-            decoration:
-                BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-            alignment: Alignment.center,
-            child: Stack(
+          Padding(
+            padding: const EdgeInsetsDirectional.only(end: 10),
+            child: Container(
+              width: 30.w,
+              height: 30.h,
+              padding: EdgeInsets.all(8),
+              decoration:
+                  BoxDecoration(color: Colors.white, shape: BoxShape.circle),
               alignment: Alignment.center,
-              children: [
-                Icon(
-                  Icons.message,
-                  size: 20,
-                  color: Colors.black,
-                ),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Container(
-                    width: 10.w,
-                    height: 10.h,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle, color: Colors.red),
-                    child: Row(
-                      children: [
-                        Text(
-                          '10',
-                          style: TextStyle(
-                            fontSize: 8.0.sp,
-                            color: Colors.white,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Icon(
+                    Icons.message,
+                    size: 20,
+                    color: Colors.black,
                   ),
-                )
-              ],
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      width: 10.w,
+                      height: 10.h,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle, color: Colors.red),
+                      child: Row(
+                        children: [
+                          Text(
+                            '10',
+                            style: TextStyle(
+                              fontSize: 8.0.sp,
+                              color: Colors.white,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
-          Container(
-            width: 30.w,
-            height: 30.h,
-            padding: EdgeInsets.all(8),
-            decoration:
-                BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-            alignment: Alignment.center,
-            child: Icon(
-              size: 17,
-              Icons.settings,
-              color: Colors.black,
+          Padding(
+            padding: const EdgeInsetsDirectional.only(end: 20),
+            child: Container(
+              width: 30.w,
+              height: 30.h,
+              padding: EdgeInsets.all(8),
+              decoration:
+                  BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+              alignment: Alignment.center,
+              child: Icon(
+                size: 17,
+                Icons.settings,
+                color: Colors.black,
+              ),
             ),
           ),
           // IconButton(
@@ -100,62 +106,6 @@ class ProfileScreen extends StatelessWidget {
         children: [
           Column(
             children: [
-              // Row(
-              //   children: [
-              //     IconButton(
-              //         onPressed: () {},
-              //         icon: Icon(
-              //           Icons.arrow_back,
-              //           color: Colors.black,
-              //         )),
-              //     Spacer(),
-              //     Container(
-              //       width: 30.w,
-              //       height: 30.h,
-              //       decoration: BoxDecoration(
-              //         borderRadius: BorderRadius.circular(20),
-              //         color: Colors.white,
-              //       ),
-              //       child: Stack(
-              //         alignment: Alignment.center,
-              //         children: [
-              //           Icon(
-              //             Icons.message,
-              //             size: 20,
-              //             color: Colors.black,
-              //           ),
-              //           Align(
-              //             alignment: Alignment.topRight,
-              //             child: Container(
-              //               width: 10.w,
-              //               height: 10.h,
-              //               decoration: BoxDecoration(
-              //                   shape: BoxShape.circle, color: Colors.red),
-              //               child: Row(
-              //                 children: [
-              //                   Text(
-              //                     '10',
-              //                     style: TextStyle(
-              //                       fontSize: 8.0.sp,
-              //                       color: Colors.white,
-              //                     ),
-              //                     textAlign: TextAlign.center,
-              //                   ),
-              //                 ],
-              //               ),
-              //             ),
-              //           )
-              //         ],
-              //       ),
-              //     ),
-              //     IconButton(
-              //         onPressed: () {},
-              //         icon: Icon(
-              //           Icons.settings,
-              //           color: Colors.black,
-              //         )),
-              //   ],
-              // ),
               Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Row(
@@ -177,7 +127,7 @@ class ProfileScreen extends StatelessWidget {
                               fontWeight: FontWeight.bold, fontSize: 20.sp),
                         ),
                         SizedBox(
-                          height: 15.h,
+                          height: 7.h,
                         ),
                         Text(
                           'BMW',
@@ -197,11 +147,12 @@ class ProfileScreen extends StatelessWidget {
             height: 10.h,
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+            padding:
+                const EdgeInsetsDirectional.only(top: 20, start: 23, end: 49),
             child: Row(
               children: [
                 Container(
-                  width: 71.w,
+                  width: 64.w,
                   height: 24.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -209,73 +160,88 @@ class ProfileScreen extends StatelessWidget {
                     color: Colors.white,
                   ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
                         Icons.add,
-                        size: 20,
+                        size: 10,
                         color: Colors.green,
                       ),
                       Text(
                         'Follow',
-                        style: TextStyle(color: Colors.green),
+                        style: TextStyle(color: Colors.green, fontSize: 10),
                       )
                     ],
                   ),
                 ),
-                SizedBox(
-                  width: 40.w,
-                ),
-                Column(
+                Spacer(),
+                // SizedBox(
+                //   width: 40.w,
+                // ),
+                Row(
                   children: [
-                    Text(
-                      '47',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.black),
+                    Column(
+                      children: [
+                        Text(
+                          '47',
+                          style: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Text('Following',
+                            style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                color: Colors.grey)),
+                      ],
                     ),
                     SizedBox(
-                      height: 10.h,
+                      width: 30.w,
                     ),
-                    Text('Following',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.grey)),
-                  ],
-                ),
-                SizedBox(
-                  width: 30.w,
-                ),
-                Column(
-                  children: [
-                    Text(
-                      '544548888',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.black),
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Text('Follower',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.grey)),
-                  ],
-                ),
-                SizedBox(
-                  width: 30.w,
-                ),
-                Column(
-                  children: [
-                    Text(
-                      '99',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.black),
+                    Column(
+                      children: [
+                        Text(
+                          '544548888',
+                          style: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Text('Follower',
+                            style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                color: Colors.grey)),
+                      ],
                     ),
                     SizedBox(
-                      height: 10.h,
+                      width: 30.w,
                     ),
-                    Text('Posts',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.grey)),
+                    Column(
+                      children: [
+                        Text(
+                          '99',
+                          style: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Text('Posts',
+                            style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                color: Colors.grey)),
+                      ],
+                    )
                   ],
-                )
+                ),
               ],
             ),
           ),

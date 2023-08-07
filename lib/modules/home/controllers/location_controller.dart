@@ -1,7 +1,8 @@
+import 'package:car_project/modules/home/views/Authentication/location%20_screen.dart';
 import 'package:countries_utils/countries_utils.dart';
 import 'package:get/get.dart';
 
-import '../views/location _screen.dart';
+
 
 class LocationController extends GetxController {
   List<Country> countries = Countries.all();

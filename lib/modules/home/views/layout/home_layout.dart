@@ -1,11 +1,11 @@
-import 'package:car_project/app/shared/style/AppTheme.dart';
+import 'package:car_project/modules/home/views/Authentication/login_Screen.dart';
 import 'package:car_project/modules/home/views/community_screen.dart';
-import 'package:car_project/modules/home/views/home_sceen.dart';
+import 'package:car_project/modules/home/views/homes/home_sceen.dart';
 import 'package:car_project/modules/home/views/profile_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../shared/style/AppTheme.dart';
 import '../buy_car_screen.dart';
-import '../login_Screen.dart';
 
 class HomeLayout extends StatefulWidget {
   HomeLayout({super.key});
@@ -70,7 +70,6 @@ class _HomeLayoutState extends State<HomeLayout> {
             ],
           ),
         ),
-        body: screens[selectedIndex]
-        );
+        body: screens[selectedIndex]);
   }
 }
