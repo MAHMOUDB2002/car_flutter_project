@@ -25,6 +25,7 @@ abstract class Routes {
   static const VIDEO_REVIEW = _Paths.VIDEO_REVIEW;
 
   static const CAR_DETAILS_PRICE = _Paths.CAR_DETAILS_PRICE;
+  static const CAR_DETAILS_VIEW = _Paths.CAR_DETAILS_VIEW;
   static const CAR_DETAILS_FAQ = _Paths.CAR_DETAILS_FAQ;
   static const COMPARE_CARS = _Paths.COMPARE_CARS;
   static const COMPARE_CARS_LIST = _Paths.COMPARE_CARS_LIST;
@@ -49,11 +50,13 @@ abstract class _Paths {
   static const SEARCH_BRAND = '/SearchBrand';
   static const SEARCH_MODEL = '/SearchModel';
   static const Brand = '/Brand';
+  // BrandsView
   static const Brand2 = '/Brand2';
   static const NEWS_DETALIS = '/NewsDetails';
   static const NEWSDETALIS_REVIEW = '/NewsDetails';
   static const VIDEO = '/Video';
   static const VIDEO_REVIEW = '/VideoReview';
+  static const CAR_DETAILS_VIEW = '/CarDetailsView';
   static const CAR_DETAILS_PRICE = '/CarDetailsPrice';
   static const CAR_DETAILS_FAQ = '/CarDetailsFaq';
   static const COMPARE_CARS = '/CompareCars';
@@ -62,4 +65,5 @@ abstract class _Paths {
   static const AUTO_PARTS = '/AutoParts';
   static const MY_ORDER = '/MyOrder';
   static const MY_ORDER_SUBMIT = '/MyOrderSubmit';
+  
 }

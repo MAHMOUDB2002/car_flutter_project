@@ -1,12 +1,17 @@
 
+import 'package:car_project/modules/controllers/buy_car_controller.dart';
+import 'package:car_project/modules/views/layout/home_layout.dart';
 import 'package:get/get.dart';
 
-import '../../modules/home/controllers/Register_Screen.dart';
-import '../../modules/home/controllers/login_controller.dart';
+import '../../modules/controllers/Register_Screen.dart';
+import '../../modules/controllers/car_details_controller.dart';
+import '../../modules/controllers/home_controller.dart';
+import '../../modules/controllers/layout_controller.dart';
+import '../../modules/controllers/login_controller.dart';
 
 
 class HomeBinding extends Bindings {
-  //Bindings لفصل التصميم عن الكود  وترتيب الكود 
+  //Bindings لفصل التصميم عن الكود  وترتيب الكود
   
   @override
   void dependencies() {
@@ -18,28 +23,30 @@ class HomeBinding extends Bindings {
     //   // وحيتماستدعائه داخل الصفحة عن طريق
     //   //UpdateArticleController controller = Get.find();
     //   // وحيتم تعريفه
-    //   () => UpdateArticleController(),
-    // );
-    // Get.lazyPut<ArticleDetailsController>(
-    //   () => ArticleDetailsController(),
-    // );
-    // Get.lazyPut<AddArticleController>(
-    //   () => AddArticleController(),
-    // );
-    // Get.lazyPut<UpdateProfileController>(
-    //   () => UpdateProfileController(),
-    // );
+
     Get.lazyPut<RegisterController>(
       () => RegisterController(),
     );
+    
+    Get.lazyPut<HomeController>(
+      () => HomeController(),
+    );
+
+    Get.lazyPut<BuyCarController>(
+      () => BuyCarController(),
+    );
+
+    Get.lazyPut<LayoutController>(
+      () => LayoutController(),
+    );
+
+  Get.lazyPut<CarDetailsController>(
+      () => CarDetailsController(),
+    );
+
     Get.lazyPut<LoginController>(
       () => LoginController(),
     );
-    // Get.lazyPut<LayoutController>(
-    //   () => LayoutController(),
-    // );
-    // Get.lazyPut<PageSelectionDoctorOrSickController>(
-    //   () => PageSelectionDoctorOrSickController(),
-    // );
+    
   }
 }

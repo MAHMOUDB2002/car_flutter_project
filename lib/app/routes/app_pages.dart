@@ -1,27 +1,28 @@
-import 'package:car_project/modules/home/views/Authentication/verification_screen.dart';
-import 'package:car_project/modules/home/views/auto_parts.dart';
-import 'package:car_project/modules/home/views/brand_screen.dart';
-import 'package:car_project/modules/home/views/buy_car_screen.dart';
-import 'package:car_project/modules/home/views/community_screen.dart';
-import 'package:car_project/modules/home/views/details/car_details_price.dart';
-import 'package:car_project/modules/home/views/details/compare_cars.dart';
-import 'package:car_project/modules/home/views/details/compare_cars_list.dart';
-import 'package:car_project/modules/home/views/layout/home_layout.dart';
-import 'package:car_project/modules/home/views/my_order_screen.dart';
-import 'package:car_project/modules/home/views/news_details.dart';
-import 'package:car_project/modules/home/views/news_details_review%20.dart';
-import 'package:car_project/modules/home/views/popular_brand_screen.dart';
-import 'package:car_project/modules/home/views/profile_screen.dart';
-import 'package:car_project/modules/home/views/search/search_brand_screen.dart';
-import 'package:car_project/modules/home/views/search/search_model_screen.dart';
-import 'package:car_project/modules/home/views/search/search_screen.dart';
-import 'package:car_project/modules/home/views/video_details_review.dart';
-import 'package:car_project/modules/home/views/video_details_screen.dart';
+import 'package:car_project/modules/views/Authentication/verification_screen.dart';
+import 'package:car_project/modules/views/auto_parts.dart';
+import 'package:car_project/modules/views/brand_screen.dart';
+import 'package:car_project/modules/views/buy_car_screen.dart';
+import 'package:car_project/modules/views/community_screen.dart';
+import 'package:car_project/modules/views/details/car_details_price.dart';
+import 'package:car_project/modules/views/details/car_details_view.dart';
+import 'package:car_project/modules/views/details/compare_cars.dart';
+import 'package:car_project/modules/views/details/compare_cars_list.dart';
+import 'package:car_project/modules/views/layout/home_layout.dart';
+import 'package:car_project/modules/views/my_order_screen.dart';
+import 'package:car_project/modules/views/details/news_details_review%20.dart';
+import 'package:car_project/modules/views/popular_brand_screen.dart';
+import 'package:car_project/modules/views/profile_screen.dart';
+import 'package:car_project/modules/views/search/search_brand_screen.dart';
+import 'package:car_project/modules/views/search/search_model_screen.dart';
+import 'package:car_project/modules/views/search/search_screen.dart';
+import 'package:car_project/modules/views/video_details_review.dart';
+import 'package:car_project/modules/views/video_details_screen.dart';
 import 'package:get/get.dart';
 
-import '../../modules/home/views/Authentication/Register_screen.dart';
-import '../../modules/home/views/Authentication/location _screen.dart';
-import '../../modules/home/views/Authentication/login_Screen.dart';
+import '../../modules/views/Authentication/Register_screen.dart';
+import '../../modules/views/Authentication/location _screen.dart';
+import '../../modules/views/Authentication/login_Screen.dart';
+import '../../modules/views/details/news_details.dart';
 import '../binding/home_binding.dart';
 
 part 'app_routes.dart';
@@ -42,9 +43,7 @@ class AppPages {
     // function to navigatebetween pages
     GetPage(
       name: _Paths.LOGIN, // page name
-      page: () => LoginScreen(
-        title: 'gg',
-      ), // page path
+      page: () => LoginPage(), // page path
       binding: HomeBinding(),
       //  HomeBinding لما اتوجه على اللوجن استدعي ال
       // اللي فيها الكونترولر وحيستدعي منها وحيعرف الكونترولر في اللوغن
@@ -72,7 +71,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.BuyCar,
-      page: () => BuyCarScreen(),
+      page: () =>  BuyCarScreen(),
       binding: HomeBinding(),
     ),
 
@@ -169,6 +168,24 @@ class AppPages {
     GetPage(
       name: _Paths.MY_ORDER,
       page: () => MyOrderScreen(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.CAR_DETAILS_VIEW,
+      page: () => CarDetailsView(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.BuyCar,
+      page: () => BuyCarScreen(),
+      binding: HomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.HOME_LAYOUT,
+      page: () => HomeLayout(),
       binding: HomeBinding(),
     ),
   ];
