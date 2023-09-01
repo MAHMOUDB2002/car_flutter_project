@@ -107,7 +107,9 @@ class CarDetailsController extends GetxController {
   CarDetailsModel? carDetailsl;
   bool loading = true;
 
-  Future<void> getDataOfCar(id) async {
+  // Future<void> getDataOfCar(id) async {
+
+  getDataOfCar(id) async {
     try {
       await DioHelper.get_data(url: "$CARS/$id").then((value) async {
         // if (value.statusCode == 200) {
@@ -117,7 +119,7 @@ class CarDetailsController extends GetxController {
         // }
       });
     } catch (e) {
-      loading = true;
+      // loading = true;
     }
   }
 

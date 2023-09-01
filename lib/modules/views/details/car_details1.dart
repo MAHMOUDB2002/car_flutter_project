@@ -803,7 +803,6 @@ import 'package:get/get.dart';
 
 import '../../../utils/components/color.dart';
 import '../../../widgets/custom_button.dart';
-import '../../../widgets/custom_icon.dart';
 import '../../../widgets/custom_list_view.dart';
 import '../../../widgets/custom_size_box.dart';
 import '../../../widgets/custom_text2.dart';
@@ -825,16 +824,25 @@ class CarDetails1Screen extends GetView<CarDetails1Controller> {
             backgroundColor: AppColor.primaryColor,
 
             // backgroundColor: Theme.of(context).colorScheme.surface,
-            leading: Align(
-              child: CustomIcon(
-                onPres: () {
-                  Get.offNamed("/CarDetailsView");
-                },
-                size: 30.h,
-                iconData: Icons.arrow_back,
-                color: AppColor.iconColor,
+            leading: GestureDetector(
+              onTap: () {
+                Get.back();
+              },
+              child: Icon(
+                Icons.arrow_back,
+                color: AppColor.grey6,
               ),
             ),
+            //  Align(
+            //   child: CustomIcon(
+            //     onPres: () {
+            //       Get.offNamed("/CarDetailsView");
+            //     },
+            //     size: 25.h,
+            //     iconData: Icons.arrow_back,
+            //     color: AppColor.iconColor,
+            //   ),
+            // ),
             title: CustomText(
               text: "2020 Cayman T",
               style: Theme.of(context).textTheme.bodyText1?.copyWith(

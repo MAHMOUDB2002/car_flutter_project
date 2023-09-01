@@ -22,6 +22,7 @@ import 'package:get/get.dart';
 import '../../modules/views/Authentication/Register_screen.dart';
 import '../../modules/views/Authentication/location _screen.dart';
 import '../../modules/views/Authentication/login_Screen.dart';
+import '../../modules/views/details/car_details1.dart';
 import '../../modules/views/details/news_details.dart';
 import '../binding/home_binding.dart';
 
@@ -188,5 +189,12 @@ class AppPages {
       page: () => HomeLayout(),
       binding: HomeBinding(),
     ),
+
+GetPage(
+      name: _Paths.CAR_DETAILS1_VIEW,
+      page: () => CarDetails1Screen(),
+      binding: HomeBinding(),
+    ),
+    
   ];
 }

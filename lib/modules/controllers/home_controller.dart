@@ -1,25 +1,17 @@
 import 'dart:async';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:car_project/api/end_points.dart';
-import 'package:countries_utils/countries.dart';
-import 'package:countries_utils/models/country.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../helpers/remote/dio_helper.dart';
+import '../../local/cash_helper.dart';
 import '../../model/all_brand_model.dart';
 import '../../model/all_car_model.dart';
 import '../../model/all_sliders_model.dart';
 import '../../model/car_details_model.dart';
 import '../../model/home_model.dart';
 import '../../model/image/carousel_slider_model.dart';
-import '../../utils/components/color.dart';
-import '../../widgets/custom_list_view.dart';
-import '../../widgets/custom_text2.dart';
-import '../views/Authentication/login_Screen.dart';
 
 class HomeController extends GetxController {
   bool loading = true;
@@ -28,9 +20,22 @@ class HomeController extends GetxController {
   bool showBottonSheetCity = false;
   // static CarDetailsController get to => Get.find();
 
+  String? valueChoose;
+  List<String> items = [
+    "Giulia",
+    "GT-R",
+    "Elmiraj",
+    "RX-V",
+  ];
+
+  dropDownButton(newValue) {
+    valueChoose = newValue;
+    update();
+  }
+
   changValueBottonSheetCity(bool value) {
     showBottonSheetCity = value;
-    print(showBottonSheetCity);
+    // print(showBottonSheetCity);
     update();
   }
 
@@ -72,6 +77,20 @@ class HomeController extends GetxController {
     viewportFraction: 1,
     keepPage: true,
   );
+
+  bool isDark = false;
+
+  void changeAppMode({bool? fromShared}) {
+    if (fromShared != null) {
+      isDark = fromShared;
+      update();
+    } else {
+      isDark = !isDark;
+      CashHelper.putBool(key: 'isDark', value: isDark).then((value) {
+        update();
+      });
+    }
+  }
 
   // List<ImageModel> images = [
   //   ImageModel(

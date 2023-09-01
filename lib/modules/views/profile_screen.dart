@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 
 import '../../utils/components/color.dart';
 import '../../widgets/custom_icon.dart';
+import '../../widgets/custom_svg_image.dart';
+import '../../widgets/custom_text2.dart';
 
 class ProfileScreen extends GetView<ProfileController> {
   // Function function;
@@ -19,7 +21,7 @@ class ProfileScreen extends GetView<ProfileController> {
         backgroundColor: AppColor.primaryColor,
         leading: CustomIcon(
           iconData: Icons.arrow_back,
-          size: 30.h,
+          size: 25.h,
           color: AppColor.iconPrimaryColor,
         ),
         actions: [
@@ -48,33 +50,37 @@ class ProfileScreen extends GetView<ProfileController> {
               alignment: Alignment.center,
               child: Stack(
                 alignment: Alignment.center,
+                clipBehavior: Clip.none,
                 children: [
-                  Icon(
-                    Icons.message,
-                    size: 20,
-                    color: Colors.black,
-                  ),
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: Container(
-                      width: 10.w,
-                      height: 10.h,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle, color: Colors.red),
-                      child: Row(
-                        children: [
-                          Text(
-                            '10',
-                            style: TextStyle(
-                              fontSize: 8.0.sp,
-                              color: Colors.white,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
+                  CircleAvatar(
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    radius: 18.h,
+                    child: CustomSvgImage(
+                      image:
+                          "https://firebasestorage.googleapis.com/v0/b/carapp-2f7b1.appspot.com/o/chat.svg?alt=media&token=ea4fa36e-1558-475a-b8e7-56a90b04c6a4",
+                      height: 19.h,
                     ),
-                  )
+                  ),
+                  Positioned(
+                      bottom: 20.h,
+                      left: 18.h,
+                      child: CircleAvatar(
+                        radius: 6.h,
+                        backgroundColor: const Color(0xFFFF3131),
+                        child: Center(
+                          child: CustomText(
+                            text: "8",
+                            style:
+                                Theme.of(context).textTheme.bodyText1?.copyWith(
+                                      fontSize: 10.sp,
+                                      fontWeight: FontWeight.w700,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .primaryContainer,
+                                    ),
+                          ),
+                        ),
+                      )),
                 ],
               ),
             ),
@@ -91,7 +97,7 @@ class ProfileScreen extends GetView<ProfileController> {
               child: Icon(
                 size: 17,
                 Icons.settings,
-                color: Colors.black,
+                color: Colors.grey,
               ),
             ),
           ),

@@ -90,7 +90,7 @@ class CarDetailsView extends GetView<CarDetailsController> {
       body: GetBuilder<CarDetailsController>(
         init: CarDetailsController(),
         builder: (controller) => controller.loading
-            ? Center(
+            ? const Center(
                 child: CircularProgressIndicator(
                   color: Colors.green,
                 ),
@@ -111,7 +111,7 @@ class CarDetailsView extends GetView<CarDetailsController> {
                         alignment: FractionalOffset.center,
                         child: GestureDetector(
                           onTap: () {
-                            Get.offNamed("/CarDetails1View");
+                            Get.toNamed("/CarDetails1View");
                           },
                           child: CachedNetworkImage(
                             imageUrl: '${controller.carDetailsl?.data?.image}',
@@ -190,7 +190,7 @@ class CarDetailsView extends GetView<CarDetailsController> {
                                                       "${controller.carDetailsl?.data!.name}",
                                                   style: TextStyle(
                                                       color: Colors.black,
-                                                      fontSize: 18.sp,
+                                                      fontSize: 17.sp,
                                                       fontWeight:
                                                           FontWeight.w700,
                                                       overflow: TextOverflow

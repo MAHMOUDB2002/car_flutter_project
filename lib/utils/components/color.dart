@@ -17,5 +17,5 @@ class AppColor {
   static const secondryColorText = const Color(0xff8E8E93);
 
   static const grey6 = const Color(0xFF757575);
-
+  static const darkMode = const Color(0xFF1B1E22);
 }

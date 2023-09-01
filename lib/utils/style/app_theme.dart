@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../components/color.dart';
 
@@ -21,6 +22,10 @@ ThemeData themelight = ThemeData(
     appBarTheme: AppBarTheme(
         iconTheme: IconThemeData(color: Colors.grey),
         // shape: OvalBorder(),
+        backgroundColor: Colors.white,
+        systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: Colors.white,
+            statusBarIconBrightness: Brightness.dark),
         elevation: 0.0)
     // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
     // useMaterial3: true,
@@ -41,9 +46,10 @@ ThemeData themeDark = ThemeData(
         surface: AppColor.primaryColor,
         primaryVariant: AppColor.secondryColor,
         onSurface: AppColor.secondryColor),
-    scaffoldBackgroundColor: AppColor.primaryColor,
+    scaffoldBackgroundColor: AppColor.darkMode,
     appBarTheme: AppBarTheme(
         // shape: OvalBorder(),
+        backgroundColor: AppColor.darkMode,
         elevation: 0.0)
     // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
     // useMaterial3: true,

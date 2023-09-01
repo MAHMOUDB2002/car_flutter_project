@@ -2,6 +2,7 @@ import 'package:car_project/modules/controllers/layout_controller.dart';
 import 'package:car_project/modules/views/Authentication/login_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+
 import '../../../utils/components/color.dart';
 
 class HomeLayout extends GetView<LayoutController> {

@@ -65,5 +65,8 @@ abstract class _Paths {
   static const AUTO_PARTS = '/AutoParts';
   static const MY_ORDER = '/MyOrder';
   static const MY_ORDER_SUBMIT = '/MyOrderSubmit';
+
+  static const CAR_DETAILS1_VIEW = '/CarDetails1View';
+
   
 }

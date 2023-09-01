@@ -101,7 +101,7 @@ class _BuyCarScreenState extends State<BuyCarScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: 75.w,
+                    width: 80.w,
                     child: DropdownButton(
                       underline: SizedBox(),
                       // dropdownColor: Colors.green,

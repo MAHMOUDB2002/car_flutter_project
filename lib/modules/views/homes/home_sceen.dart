@@ -32,27 +32,57 @@ class HomeScreen extends GetView<HomeController> {
             appBar: AppBar(
               title: Row(
                 children: [
-                  Expanded(
-                    child: CustomText(
-                        style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                            overflow: TextOverflow.ellipsis,
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w400),
-                        text: controller.nameOfCountry ?? "Bangkok",
-                        onTap: () {}),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      controller.changValueBottonSheetCity(true);
-                      print("moo");
-                    },
-                    child: Padding(
-                      padding: EdgeInsets.only(right: 10.w),
-                      child: CustomIcon(
-                        iconData: Icons.keyboard_arrow_down_sharp,
+                  SizedBox(
+                    width: 80.w,
+                    child: DropdownButton(
+                      underline: SizedBox(),
+                      // dropdownColor: Colors.green,
+                      icon: Icon(
+                        Icons.arrow_drop_down,
+                        color: Colors.grey,
                       ),
+                      hint: Text(
+                        "Bangkok: ",
+                        style: TextStyle(fontSize: 12.0.sp, color: Colors.grey),
+                      ),
+                      value: controller.valueChoose,
+                      onChanged: (newValue) {
+                        // setState(() {
+                        controller.dropDownButton(newValue);
+                        // controller.valueChoose = ;
+                        // });
+                      },
+                      items: controller.items.map((valueItem) {
+                        return DropdownMenuItem(
+                            value: valueItem,
+                            child: Text(
+                              valueItem,
+                              style:
+                                  TextStyle(fontSize: 12.0, color: Colors.grey),
+                            ));
+                      }).toList(),
                     ),
+
+                    // child: CustomText(
+                    //     style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                    //         overflow: TextOverflow.ellipsis,
+                    //         fontSize: 12.sp,
+                    //         fontWeight: FontWeight.w400),
+                    //     text: controller.nameOfCountry ?? "Bangkok",
+                    //     onTap: () {}),
                   ),
+                  // GestureDetector(
+                  //   onTap: () {
+                  //     controller.changValueBottonSheetCity(true);
+                  //     print("moo");
+                  //   },
+                  //   child: Padding(
+                  //     padding: EdgeInsets.only(right: 10.w),
+                  //     child: CustomIcon(
+                  //       iconData: Icons.keyboard_arrow_down_sharp,
+                  //     ),
+                  //   ),
+                  // ),
                   Expanded(
                     flex: 5,
                     child: Stack(
@@ -125,13 +155,19 @@ class HomeScreen extends GetView<HomeController> {
                       ],
                     ),
                   ),
+
+                  // IconButton(
+                  // onPressed: () {
+                  //   controller.changeAppMode();
+                  // },
+                  // icon: Icon(Icons.brightness_4_outlined)),
                 ],
               ),
               backgroundColor: Theme.of(context).colorScheme.surface,
             ),
             body: Padding(
               padding: EdgeInsets.only(
-                  top: 20.h, left: 20.w, right: 20.w, bottom: 20.h),
+                  top: 20.h, left: 20.w, right: 20.w, bottom: 5.h),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -290,10 +326,25 @@ class HomeScreen extends GetView<HomeController> {
                             padding: EdgeInsets.symmetric(horizontal: 10.w),
                             child: Row(
                               children: [
-                                Image.network(
-                                  "${controller.homeModel?.data?.brands?[index].logo}",
+                                // Image.network(
+                                //   "${controller.homeModel?.data?.brands?[index].logo}",
+                                //   height: 20.h,
+                                //   width: 20.w,
+                                // ),
+
+                                CachedNetworkImage(
+                                  imageUrl:
+                                      '${controller.homeModel?.data?.brands?[index].logo}',
+                                  placeholder: (context, url) => SizedBox(
+                                    child: Center(
+                                      child: CircularProgressIndicator(
+                                        color: AppColor.secondryColor,
+                                      ),
+                                    ),
+                                  ),
                                   height: 20.h,
                                   width: 20.w,
+                                  // fit: BoxFit.cover,
                                 ),
                                 SizedBox(
                                   width: 2.w,
@@ -865,7 +916,7 @@ class HomeScreen extends GetView<HomeController> {
                       child: CustomListView(
                           itemBuilder: (context, index) => GestureDetector(
                                 onTap: () {
-                                  Get.offNamed("/NewsDetails");
+                                  Get.toNamed("/NewsDetails");
                                 },
                                 child: Container(
                                   width: double.infinity,
